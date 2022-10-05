@@ -5,7 +5,7 @@ namespace Self_Assessment___4
 {
     internal class Program
     {
-        //Exercise #2
+        //Exercise #2 -- COMPLETE
         //static void GetMax(int number1, int number2)
         //{
 
@@ -29,7 +29,7 @@ namespace Self_Assessment___4
         //}
 
 
-        //Exercise #3
+        //Exercise #3 -- COMPLETE
 
         //static void Main(string[] args)
         //{
@@ -97,62 +97,84 @@ namespace Self_Assessment___4
         //    if array==array+1
         //    }
 
-        //Exercise #11
+        //Exercise #11 -- COMPLETE
 
-        static void main(string[] args)
+        static void ReverseOrder()
         {
-            ThreeTasks();
+            int sizeArray1;
+            Console.WriteLine("Enter Size of Array:");
+            sizeArray1 = Convert.ToInt32(Console.ReadLine());
+            int[] array1 = new int[sizeArray1];
+            Console.WriteLine("Enter numbers:");
+            for (int i = 0; i < sizeArray1; i++)
+            {
+                array1[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            Array.Reverse(array1);
+            Console.WriteLine(String.Join(',', array1));
+
         }
-        static int ThreeTasks(int number)
+
+        static void Average()
+        {
+            int sizeArray1;
+            Console.WriteLine("Enter Size of Array:");
+            sizeArray1 = Convert.ToInt32(Console.ReadLine());
+            int[] array1 = new int[sizeArray1];
+            Console.WriteLine("Enter numbers:");
+            for (int i = 0; i < sizeArray1; i++)
+            {
+                array1[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            int sum = array1.Sum();
+            int length = array1.Length;
+            int average = sum / length;
+            Console.WriteLine(average);
+        }
+
+        static void SolveLinearEquation()
+        {
+            Console.WriteLine("Please input a:");
+            int a = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Please input b:");
+            int b = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Please input x:");
+            int x = Convert.ToInt32(Console.ReadLine());
+
+            if (a == 0)
+            {
+                if (b == 0)
+                    Console.WriteLine("Unlimited result equation");
+                else
+                    Console.WriteLine("No result");
+            }
+            else
+            {
+                x = -b / a;
+                Console.WriteLine("1 result");
+            }
+        }
+
+        static void Main(string[] args)
         {
             Console.WriteLine("Please select a task:");
             Console.WriteLine("1) Reverse Order");
             Console.WriteLine("2) Average");
             Console.WriteLine("3) Solve Linear Equation");
             int answer = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Please input numbers.");
-            int sizearray1 = Convert.ToInt32(Console.ReadLine());
-
+ 
             switch (answer)
             {
                 case 1:
-                    
-                    int[] array1 = new int[sizearray1];
-                    int reverseOrder = Array.Reverse(array1);
-                    Console.WriteLine(reverseOrder);
+                    ReverseOrder();
                     break;
                 case 2:
-                    
-                    int[] array2 = new int[sizearray1];
-                    int sum = array2.Sum();
-                    int length = array2.Length;
-                    int average = sum / length;
-                    Console.WriteLine(average);
+                    Average();
                     break;
                 case 3:
-                    Console.WriteLine("Please input a:");
-                    int a = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Please input b:");
-                    int b = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Please input x:");
-                    int x = Convert.ToInt32(Console.ReadLine());
-
-                    if (a == 0)
-                    {
-                        if (b == 0)
-                            Console.WriteLine("Unlimited result equation");
-                        else
-                            Console.WriteLine("No result");
-                    }
-                    else
-                    {
-                        x = -b / a;
-                        Console.WriteLine("1 result");
-                    }
+                    SolveLinearEquation();
                     break;
-                    //Solve the linear equation a * x + b = 0
-
-
 
             }
         }
